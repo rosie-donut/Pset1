@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <math.h>
+
+int main(void)
+{
+
+    // declare variables
+    int quarters = 25;
+    int dimes = 10;
+    int nickels = 5;
+    int pennies = 1;
+
+    while (true)
+    {
+        // ask how much change is owed
+        float change = get_float("How much change is owed?\n");
+        if (change > 0)
+        {
+            // convert change to cents
+            int cents = round(change * 100);
+
+            // call functions
+            int NumberofQuarters = cents / quarters;
+            int leftoverQ = cents % quarters;
+            int NumberofDimes = leftoverQ / dimes;
+            int leftoverD = leftoverQ % dimes;
+            int NumberofNickels = leftoverD / nickels;
+            int leftoverN = leftoverD % nickels;
+            int NumberofPennies = leftoverN / pennies;
+            int leftoverP = leftoverN % pennies;
+
+            printf("%i \n ", NumberofQuarters + NumberofDimes + NumberofNickels + NumberofPennies);
+            break;
+        }
+        else
+        {
+            printf("Please enter a valid amount.");
+        }
+    }
+}
+
