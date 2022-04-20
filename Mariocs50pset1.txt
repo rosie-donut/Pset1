@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <cs50.h>
+
+int main(void)
+{
+    while (true)
+    {
+        int height = get_int("What is the height?\n");
+        if (height < 9 && height > 0)
+        {
+            for (int r = 1; r <= height; r++)
+            {
+                for (int c2 = 1; c2 <= height - r; c2++)
+                {
+                    printf(" ");
+                }
+                for (int c1 = 1; c1 <= r; c1++)
+                {
+                    printf("#");
+                }
+                printf("\n");
+            }
+            break;
+        }
+
+        else
+        {
+            printf("Please enter a valid height.");
+        }
+
+    }
+
+}
